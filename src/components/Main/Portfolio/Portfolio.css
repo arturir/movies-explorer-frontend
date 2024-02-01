@@ -1,0 +1,100 @@
+.portfolio {
+    display: flex;
+    justify-content: center;
+}
+.portfolio__wrapper {
+    width: 320px;
+    padding: 0 14px 70px;
+    box-sizing: border-box;
+}
+.portfolio__title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(160, 160, 160, 1);
+    margin: 0 0 40px;
+}
+.portfolio__link {
+    display: block;
+    width: 292px;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    position: relative;
+    transition: font-size 0.3s linear;
+}
+.portfolio__link:hover {
+    font-size: 19px;
+}
+.portfolio__link::after {
+    display: block;
+    content: "";
+    height: 28px;
+    width: 18px;
+    background-image: url("../../../images/arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.portfolio__grey-line{
+    width: 292px;
+    height: 1px;
+    background: rgba(230, 230, 230, 1);
+    margin: 19px auto 20px;
+}
+@media(min-width: 768px) {
+    .portfolio__wrapper {
+        width: 768px;
+        padding: 0 50px 90px;
+    }
+    .portfolio__link  { 
+        font-size: 28px;
+        line-height: 50px;
+        width: 668px;
+    }
+    .portfolio__link:hover {
+        font-size: 30px;
+    }
+    .portfolio__title {
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0 0 50px;
+    }
+    .portfolio__link::after {
+        width: 27px;
+        height: 60px;
+    }
+    .portfolio__grey-line {
+        width: 668px;
+    }
+}
+@media(min-width: 1280px) {
+    .portfolio__wrapper {
+        width: 1280px;
+        padding: 0 70px 125px;
+    }
+    .portfolio__link  {
+        width: 1140px;
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .portfolio__link:hover {
+        font-size: 32px;
+    }
+    .portfolio__link::after {
+        width: 29px;
+        height: 60px;
+    }
+    .portfolio__grey-line {
+        width: 1140px;
+    }
+}

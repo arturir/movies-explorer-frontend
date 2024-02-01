@@ -1,0 +1,16 @@
+.saved-movies {
+    padding: 40px 10px;
+}
+@media (min-width: 768px) {
+    .saved-movies {
+        padding: 70px 30px;
+    }   
+}
+
+@media (min-width: 1280px) {
+    .saved-movies {
+        padding: 70px;
+    }
+}
+
+

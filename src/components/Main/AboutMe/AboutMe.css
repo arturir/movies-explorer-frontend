@@ -1,0 +1,123 @@
+.about-me{
+    margin: 0 auto;
+}
+.about-me__wrapper {
+    padding: 70px 14px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 320px;
+}
+.about-me__photo {
+    display: block;
+    width: 292px;
+    height: 352px;
+    border-radius: 10px ;
+    object-fit: cover;
+    margin: 60px auto 40px;
+}
+.about-me__name {
+    margin: 0 auto 24px;
+    color: rgba(0, 0, 0, 1);
+    text-align: left;
+    font-family: Inter;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: -0.04em;
+    width: 292px;
+}
+.about-me__about{
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    width: 292px;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 auto 40px;
+}
+.about-me__profossion {
+    margin: 0 0 20px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 11px;
+}
+.about-me__github-link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    width: 292px;
+    transition: font-size 0.3s linear;
+}
+.about-me__github-link:hover {
+    font-size: 15px;
+}
+@media (min-width: 768px) {
+    .about-me__wrapper {
+        width: 768px;
+        padding: 90px 50px;
+    }
+    .about-me__photo {
+        width: 255px;
+        height: 307px;
+        margin: 66px 0 0;
+    }
+    .about-me__wrapper-about {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items:start;
+        justify-content: space-between;
+    }
+    .about-me__left-column {
+        margin-top: 66px;
+        min-height: 307px;
+        position: relative;
+    }
+    .about-me__name {
+        margin: 0 0 16px;
+    }
+    .about-me__profossion {
+        margin: 0 0 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .about-me__about {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 0 20px;
+        width: 364px;
+    }
+    .about-me__github-link {
+        margin: 0;
+        bottom: 0;
+        position: absolute;
+    }
+}
+@media (min-width: 1280px) {
+    .about-me__wrapper {
+        padding: 110px 70px 100px;
+        width: 1280px;
+    }
+    .about-me__name {
+        margin: 0 0 18px;
+    }
+    .about-me__profossion {
+        margin: 0 0 26px;
+        line-height: 18px;
+        font-size: 20px;
+    }
+    .about-me__about {
+        margin: 0 0 26px;
+        width: 600px;
+    }
+    .about-me__photo { 
+        width: 270px;
+        height: 327px;
+    }
+    .about-me__left-column {
+        min-height: 327px;
+    }
+}

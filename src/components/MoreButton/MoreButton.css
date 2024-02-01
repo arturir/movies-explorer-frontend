@@ -1,0 +1,24 @@
+.more-button {
+    width: 300px;
+    height: 36px;
+    background: rgba(249, 249, 249, 1);
+    border: 0;
+    border-radius: 6px;
+    margin: 50px auto 80px;
+    display: block;
+}
+.more-button:hover {
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .more-button {
+        width: 708px;
+    }
+}
+@media (min-width: 1280px) {
+    .more-button {
+        width: 1140px;
+    }
+}
+
+
