@@ -1,0 +1,42 @@
+.promo {
+    background: rgba(70, 93, 255, 1);
+    height: 570px;
+    background-image: url(../../../images/baner-background-image.svg);
+    background-repeat: no-repeat;
+    background-position: center 142px;
+    position: relative;
+}
+.promo__title {
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 39px;
+    text-align: center;
+    width: 300px;
+    letter-spacing: -0.04em;
+    margin: 0 auto;
+    padding: 204px 0 246px;
+}
+@media (min-width: 768px) {
+    .promo {
+        height: 784px;
+        background-size: 320px;
+        background-position: center 224px;
+    }
+    .promo__title {
+        font-size: 50px;
+        line-height: 58px;
+        width: 730px;
+        letter-spacing: -0.04em;
+        padding: 326px 0 342px;
+    }
+}
+@media (min-width: 1280px) {
+    .promo {
+        height: 524px;
+        background-position: center 82px;
+    }
+    .promo__title {
+       margin: 0px auto;
+       padding: 184px 0;
+    }
+}
