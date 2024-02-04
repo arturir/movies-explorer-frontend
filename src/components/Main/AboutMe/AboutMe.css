@@ -87,8 +87,6 @@
         margin-top: 66px;
         min-height: 307px;
         position: relative;
-        display: flex;
-        flex-direction: column;
     }
     .about-me__name {
         margin: 0 0 16px;
@@ -107,10 +105,9 @@
         width: 364px;
     }
     .about-me__github-link {
-        /* margin: 0;
+        margin: 0;
         bottom: 0;
-        position: absolute; */
-        
+        position: absolute;
     }
 }
 @media (min-width: 1280px) {
