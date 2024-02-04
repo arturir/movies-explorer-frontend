@@ -18,3 +18,5 @@
 @import url(./components/PageNoteFound/PageNoteFound.css);
 @import url(./components/PopupNavigation/PopupNavigation.css);
 @import url(./components/Preloader/Preloader.css);
+@import url(./components/Popup/popup.css);
+@import url(./components/CloseButton/CloseButton.css);

@@ -10,7 +10,7 @@ export default function Register () {
     return (
         <main>
             <Form>
-                <h2 className="form__greeting">Добро пожаловать!</h2>
+                <h1 className="form__greeting">Добро пожаловать!</h1>
                 <form className="form__wrapper">
                     <FormInputName />
                     <FormInputEmail />

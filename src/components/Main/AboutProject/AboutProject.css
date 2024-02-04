@@ -76,6 +76,7 @@
 }
 @media (min-width: 440px) {
     .about-project__wrapper {
+        padding: 70px 0;
         width: 80vw;
         margin: 0 auto;
     }
@@ -98,8 +99,8 @@
 }
 @media (min-width: 768px) {
     .about-project__wrapper {
-        padding: 90px 50px;
-        width: 768px;
+        padding: 90px 0;
+        width: 668px;
         margin: 0 auto;
         box-sizing: border-box;
     }

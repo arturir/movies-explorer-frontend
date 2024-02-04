@@ -43,6 +43,7 @@
 }
 .search-form__button:hover {
     cursor: pointer;
+    background-color: rgba(235, 104, 56, 1);
 }
 .search-form__grey-line {
     width: 299px;
@@ -52,6 +53,7 @@
 .search-form__checkbox {
     display: none;
 }
+
 .search-form__checkbox + .search-form__label-checkbox {
     display: inline-block;
     width: 36px;
@@ -90,6 +92,12 @@
     gap: 12px;
     align-items: center;
     margin: 43px 0 50px;
+}
+.search-form__label-checkbox:hover {
+    background-color: rgba(184, 184, 204, 1)
+}
+.search-form__checkbox:checked + .search-form__label-checkbox:hover  {
+    background: rgb(60, 178, 70);
 }
 @media (min-width: 440px) {
     .search-form {  

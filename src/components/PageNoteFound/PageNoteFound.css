@@ -30,6 +30,10 @@
     width: 200px;
     text-align: center;
 }
+.page-not-found__link:hover {
+    color: rgb(218, 82, 40);
+}
+
 
 @media (min-width: 768px) {
     .page-not-found {

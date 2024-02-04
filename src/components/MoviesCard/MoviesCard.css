@@ -67,7 +67,12 @@
 .movies-card__checkbox:checked + .movies-card__label-checkbox:after {
     background: rgba(43, 224, 128, 1);
 }
-
+.movies-card__label-checkbox:hover {
+    background-color: rgba(249, 249, 249, 1);
+}
+.movies-card__checkbox:checked + .movies-card__label-checkbox:hover  {
+    background: rgba(43, 224, 128, 1);
+}
 @media (min-width: 440px) {
     .movies-card {
         margin: 0 auto;

@@ -4,6 +4,9 @@
     align-items: center;
     flex-direction: column;
 }
+.form_type_edit {
+    margin: 0 auto 20px;
+}
 .form__logo {
     width: 38px;
     height: 38px;
@@ -11,6 +14,11 @@
     display: block;
     background-size: contain;
     background-repeat: no-repeat;
+}
+.form__logo:hover {
+    background-size: 110%;
+    background-position: center;
+    border-radius: 7px;
 }
 .form__wrapper {
     display: flex;
@@ -25,6 +33,9 @@
     text-align: center;
     padding: 50px 0 80px;
     margin: 0;
+}
+.form__greeting_type_edit {
+    padding: 40px 0 30px;
 }
 .form__label {
     font-size: 10px;
@@ -76,6 +87,14 @@
     color: rgba(255, 255, 255, 1);
 }
 .form__button:hover {
+    background: rgb(218, 82, 40);
+}
+
+.form__button_type_edit {
+    margin-top: 30px;
+}
+
+.form__button:hover {
     cursor: pointer;
 }
 .form__description {
@@ -97,6 +116,9 @@
     display: inline-block;
     margin-left: 7px;
 }
+.form__link:hover  {
+    color: rgb(218, 82, 40);
+}
 .form__under-button {
     margin-top: 14px;
 }
@@ -105,7 +127,12 @@
     .form {
         margin-top: 232px;
     }
-    .form__logo {
+    .form_type_edit {
+        margin: 10px auto 30px;
+    }
+    .form__wrapper-logo {
+        display: flex;
+        justify-content: left;
         width: 396px;
     }
     .form__greeting {
@@ -128,6 +155,9 @@
 @media (min-width: 1280px) {
     .form {
         margin-top: 70px;
+    }
+    .form_type_edit {
+        margin: 30px auto 30px;
     }
     .form__under-button {
         margin-top: 16px;

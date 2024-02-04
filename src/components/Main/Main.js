@@ -14,7 +14,7 @@ export default function Main () {
             <main className="main">
                 <Promo />
                 <NavTab />
-                <AboutProject />
+                <AboutProject /> 
                 <Techs />
                 <AboutMe />
                 <Portfolio />

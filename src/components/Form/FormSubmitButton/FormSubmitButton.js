@@ -1,7 +1,7 @@
-export default function FormSubmitButton ({ text }) {
+export default function FormSubmitButton ({ text, mod }) {
     return (
         <>
-            <button type="submit" className="form__button">{text}</button>
+            <button type="submit" className={"form__button " + mod}>{text}</button>
         </>
     )
 }
