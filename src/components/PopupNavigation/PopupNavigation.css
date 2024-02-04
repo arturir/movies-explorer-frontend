@@ -26,7 +26,7 @@
     font-size: 18px;
 }
 .popup__link.active {
-    text-decoration: underline;
+    border-bottom: 1px solid rgb(0,0,0);
 }
 .popup__close {
     background-image: url("../../images/close.svg");

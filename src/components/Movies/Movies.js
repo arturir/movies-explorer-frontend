@@ -11,11 +11,13 @@ export default function Movies ({ movies }) {
     return (
         <>
             <Header />
-            <SearchForm />
-            <section className="movies">
-                <MoviesCardList movies={[...movies]}/>
-                <MoreButton />
-            </section>
+            <main>
+                <SearchForm />
+                <section className="movies">
+                    <MoviesCardList movies={[...movies]}/>
+                    <MoreButton />
+                </section>
+            </main>
             <Footer />
         </>
      

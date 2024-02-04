@@ -7,7 +7,7 @@
 .form__logo {
     width: 38px;
     height: 38px;
-    background-image: url(../../images/logo.png);
+    background-image: url(../../images/logo.svg);
     display: block;
     background-size: contain;
     background-repeat: no-repeat;
@@ -44,11 +44,11 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
     box-sizing: border-box;
 }
 .form__input:focus {
-    outline: none;
+    outline: 1px solid rgba(70, 93, 255, 1);
 }
 .form__input_error {
     color: rgba(238, 52, 101, 1);
@@ -59,7 +59,7 @@
     line-height: 12px;
     color: rgba(238, 52, 101, 1);
     align-self: flex-start;
-    margin: 0 0 12px;
+    margin: 0 0 7px;
     height: 12px;
     width: 260px;
 }
@@ -128,5 +128,20 @@
 @media (min-width: 1280px) {
     .form {
         margin-top: 70px;
+    }
+    .form__under-button {
+        margin-top: 16px;
+    }
+    .form__description {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .form__link {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .form__button {
+        line-height: 17px;
+        font-size: 14px;
     }
 }

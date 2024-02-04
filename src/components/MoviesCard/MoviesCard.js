@@ -4,9 +4,9 @@ export default function MoviesCard ({ movie }) {
             <img className="movies-card__image" src={movie.image} alt= {"Обложка фильма" + movie.name }/>
             <div className="movies-card__description">
                 <div className="movies-card__top-row">
-                    <p className="movies-card__name">
+                    <h2 className="movies-card__name">
                         {movie.name}
-                    </p>
+                    </h2>
                     <input type="checkbox" id={ "toggleCheckbox" + movie._id } className="movies-card__checkbox"/>
                     <label htmlFor={ "toggleCheckbox" + movie._id } className="movies-card__label-checkbox"></label>
                 </div>

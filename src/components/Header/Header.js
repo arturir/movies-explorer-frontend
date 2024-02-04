@@ -16,9 +16,9 @@ export default function Header ({ themeHeaderIsBlue }) {
     }
 
     return (
-        <>
+        <header>
             <Navigation themeHeaderIsBlue={themeHeaderIsBlue} toggleBurgerMenu={toggleBurgerMenu} />
             <PopupNavigation burgerMenuOpened={burgerMenuOpened} toggleBurgerMenu={toggleBurgerMenu} />
-        </>
+        </header>
     );
 }

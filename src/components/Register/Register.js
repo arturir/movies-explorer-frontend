@@ -8,18 +8,20 @@ import FormSubmitButton from "../Form/FormSubmitButton/FormSubmitButton";
 export default function Register () {
 
     return (
-        <Form>
-            <h2 className="form__greeting">Добро пожаловать!</h2>
-            <form className="form__wrapper">
-                <FormInputName />
-                <FormInputEmail />
-                <FormInputPassword />
-                <FormSubmitButton text={"Зарегистрироваться"}/>
-                <div className="form__under-button">
-                    <p className="form__description">Уже зарегистрированы?</p>
-                    <Link className="form__link" to="/signin">Войти</Link>
-                </div>
-            </form>
-        </Form>
+        <main>
+            <Form>
+                <h2 className="form__greeting">Добро пожаловать!</h2>
+                <form className="form__wrapper">
+                    <FormInputName />
+                    <FormInputEmail />
+                    <FormInputPassword />
+                    <FormSubmitButton text={"Зарегистрироваться"}/>
+                    <div className="form__under-button">
+                        <p className="form__description">Уже зарегистрированы?</p>
+                        <Link className="form__link" to="/signin">Войти</Link>
+                    </div>
+                </form>
+            </Form>
+        </main>
     )
 }

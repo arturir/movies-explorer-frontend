@@ -9,13 +9,14 @@ export default function Profile () {
     return (
         <>
             <Header />
+            <main className="profile">
+                <h2 className="profile__greeting">Привет, {currentName}!</h2>
+                <div className="profile__row profile__row_with-bottom-line"><p className="profile__text">Имя</p><p className="profile__text">{currentName}</p></div>
 
-            <h2 className="profile__greeting">Привет, {currentName}!</h2>
-            <div className="profile__row"><p className="profile__text">Имя</p><p className="profile__text">{currentName}</p></div>
-            <div className="profile__grey-line"></div>
-            <div className="profile__row"><p className="profile__text">E-mail</p><p className="profile__text">{currentEmail}</p></div>
-            <Link to="/" className="profile__edit-link">Редактировать</Link>
-            <Link to="/" className="profile__exit-link">Выйти из аккаунта</Link>
+                <div className="profile__row"><p className="profile__text">E-mail</p><p className="profile__text">{currentEmail}</p></div>
+                <Link to="/" className="profile__edit-link">Редактировать</Link>
+                <Link to="/" className="profile__exit-link">Выйти из аккаунта</Link>
+            </main>
         </>
     )
 }

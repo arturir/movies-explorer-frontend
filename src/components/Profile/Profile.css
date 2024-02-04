@@ -18,14 +18,14 @@
 .profile__row {
     width: 260px;
     margin: 0 auto;
+    position: relative;
     display: flex;
     justify-content: space-between;
+    padding: 17px 0 0;
 }
-.profile__grey-line {
-    width: 260px;
-    height: 1px;
-    background: rgba(232, 232, 232, 1);
-    margin: 16px auto 17px;
+.profile__row_with-bottom-line {
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+    padding: 0 0 17px;
 }
 .profile__edit-link {
     font-size: 13px;
@@ -61,7 +61,7 @@
     .profile__exit-link { 
         margin: 16px 0 269px;
     }
-    .profile__grey-line {
+    .profile__row:first::after  {
         width: 410px;
     }
 }

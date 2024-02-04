@@ -12,7 +12,6 @@ export default function Movies ({ movies }) {
             <SearchForm />
             <section className="saved-movies">
                 <MoviesCardList movies={movies} />
-                <MoreButton />
             </section>
             <Footer />
         </>

@@ -4,15 +4,13 @@
 }
 .about-project__wrapper {
     padding: 70px 18px;
-    margin: 0 auto;
     box-sizing: border-box;
-    width: 320px;
 }
 .about-project__information {
     display: flex;
     flex-direction: column;
     gap: 56px;
-    margin: 60px 0;
+    margin: 89px 0 59px;
 }
 .about-project__title {
     margin: 0;
@@ -76,14 +74,34 @@
 .about-project__column-description {
     width: 284px;
 }
-@media (min-width: 768px) {
+@media (min-width: 440px) {
     .about-project__wrapper {
-        padding: 90px 50px;
-        width: 768px;
+        width: 80vw;
+        margin: 0 auto;
     }
     .about-project__information {
         flex-direction: row;
         gap: 30px;
+        margin: 70px auto 93px;
+    }
+    .about-project__duration {
+        width: 80vw;
+        margin: 0 auto;
+    }
+    .about-project__grey-rectangle {
+        width: 50vw;
+    }
+    .about-project__green-rectangle {
+        width: 30vw;
+    }
+
+}
+@media (min-width: 768px) {
+    .about-project__wrapper {
+        padding: 90px 50px;
+        width: 768px;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
     .about-project__title {
         font-size: 20px;
@@ -102,27 +120,33 @@
     }
     .about-project__green-rectangle {
         font-size: 14px;
+        line-height: 17px;
         width: 140px;
+        padding: 9px 0;
     }
     .about-project__grey-rectangle {
         font-size: 14px;
+        line-height: 17px;
         width: 528px;
+        padding: 9px 0;
     }
     .about-project__part {
         font-size: 14px;
+        margin: 15px auto 0;
+        line-height: 17px;
     }
 }
 @media (min-width: 1280px) {
     .about-project__wrapper {
-        padding: 110px 70px;
-        width: 1280px;
+        padding: 110px 0;
+        width: 1140px;
     }
     .about-project__column-description {
         width: 550px;
     }
     .about-project__information {
         gap: 40px;
-        margin: 70px 0;
+        margin-bottom: 110px;
     }
     .about-project__description {
         margin: 26px 0 0;
