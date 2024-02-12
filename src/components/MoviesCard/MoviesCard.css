@@ -12,6 +12,7 @@
     height: 168px;
     border-radius: 10px 10px 0 0;
     box-sizing: border-box;
+    object-fit: cover;
 }
 .movies-card__top-row {
     display: flex;
@@ -73,6 +74,32 @@
 .movies-card__checkbox:checked + .movies-card__label-checkbox:hover  {
     background: rgba(43, 224, 128, 1);
 }
+.movies-card__checkbox + .movies-card__delete {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url("../../images/small-close.svg");
+    position: relative;
+    cursor: pointer;
+    background-size: contain;
+    box-shadow: 0;
+}
+.movies-card__delete:after {
+    display: none;
+}
+.movies-card__delete:hover {
+    background-color: #fff;
+}
+
+.movies-card__checkbox:checked + .movies-card__delete:hover  {
+    background-color: #fff;
+    background-image: url("../../images/small-close.svg");
+    background-size: contain;
+}
+.movies-card__checkbox:checked + .movies-card__delete:after {
+    background: #fff;
+}
+
 @media (min-width: 440px) {
     .movies-card {
         margin: 0 auto;

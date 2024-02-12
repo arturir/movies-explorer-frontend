@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 260px;
 }
 .form__greeting {
     font-size: 24px;
@@ -65,6 +66,7 @@
     color: rgba(238, 52, 101, 1);
 }
 .form__text-validation {
+    display: block;
     font-size: 10px;
     font-weight: 400;
     line-height: 12px;
@@ -74,6 +76,7 @@
     height: 12px;
     width: 260px;
 }
+
 .form__button {
     margin-top: 157px;
     width: 260px;
@@ -85,6 +88,9 @@
     font-weight: 400;
     line-height: 15px;
     color: rgba(255, 255, 255, 1);
+}
+.form__button:disabled {
+    background: rgba(160, 160, 160, 1);
 }
 .form__button:hover {
     background: rgb(218, 82, 40);
@@ -141,6 +147,9 @@
         text-align: left;
     }
     .form__input {
+        width: 396px;
+    }
+    .form__wrapper {
         width: 396px;
     }
     .form__text-validation {

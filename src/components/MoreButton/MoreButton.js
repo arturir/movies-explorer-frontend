@@ -1,5 +1,5 @@
-export default function MoreButton () {
+export default function MoreButton ({action}) {
     return (
-        <button type="button" className="more-button" >Ещё</button>   
+        <button type="button" className="more-button" onClick={action}>Ещё</button>   
     )
 }
