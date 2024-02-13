@@ -107,5 +107,5 @@ class MainApi {
     }
 }
 
-const mainApi = new MainApi('http://localhost:3001');
+const mainApi = new MainApi("api.arturir.nomoredomainsmonster.ru");
 export default mainApi;
