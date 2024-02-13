@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Form from "../Form/Form";
 import FormInputName from "../Form/FormInputName/FormInputName";
 import FormInputEmail from "../Form/FormInputEmail/FormInputEmail";
@@ -10,12 +9,12 @@ import useFormWithValidation from "../../hooks/useFormWithValidation/useFormWith
 
 
 export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
-    const { userName, email, handleUpdateUser} = useContext(CurrentAppContext),
-        formWithValidation = useFormWithValidation();
+
+    const {userName, email, handleUpdateUser} = useContext(CurrentAppContext),
+          formWithValidation = useFormWithValidation();
 
     function changeForm (event) {
         formWithValidation.handleChange(event);
-        console.log('dddd')
     }
 
     function handleOverlayClose (event) {
@@ -30,7 +29,6 @@ export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
         handleUpdateUser({name: name.value, email: email.value, password: password.value});
         toggleFormIsOpen(event);
     }
-
 
     return (
         <div className={!formIsOpen? "popup" : "popup popup_active"} onMouseDown={handleOverlayClose}>

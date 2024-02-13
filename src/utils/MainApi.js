@@ -18,7 +18,7 @@ class MainApi {
         return fetch(`${this._url}/signup`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({name, email, password})
           })
@@ -27,11 +27,11 @@ class MainApi {
 
     authorize (email, password) {
         return fetch(`${this._url}/signin`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({email, password})
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, password})
         })
         .then(response => this._getResponseData(response))
     }; 
@@ -40,8 +40,8 @@ class MainApi {
       return fetch(`${this._url}/users/me`, {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
         }
       })
       .then(response => this._getResponseData(response))
@@ -52,8 +52,8 @@ class MainApi {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
             headers: {
-              authorization: this.refreshToken(),
-              'Content-Type': 'application/json'
+                authorization: this.refreshToken(),
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 name, email
@@ -81,10 +81,8 @@ class MainApi {
     }
 
     addNewCard(newMovie) {
-        console.log(newMovie.image)
-            const {country, director, duration, year, description, image, trailerLink, thumbnail, id, nameRU, nameEN} = newMovie;
-            const newFilm = {country, director, duration, year, description, image:  image.url, trailerLink, thumbnail:image.url, movieId: id, nameRU, nameEN};
-
+        const {country, director, duration, year, description, image, trailerLink, thumbnail, id, nameRU, nameEN} = newMovie;
+        const newFilm = {country, director, duration, year, description, image:  image.url, trailerLink, thumbnail:image.url, movieId: id, nameRU, nameEN};
         return fetch(`${this._url}/movies`, {
             method: 'POST',
             headers: {

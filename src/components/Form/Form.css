@@ -95,7 +95,10 @@
 .form__button:hover {
     background: rgb(218, 82, 40);
 }
-
+.form__button:disabled:hover {
+    background: rgb(119, 119, 119);
+    cursor: default;
+}
 .form__button_type_edit {
     margin-top: 30px;
 }

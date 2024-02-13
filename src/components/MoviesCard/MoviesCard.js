@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { CurrentAppContext } from "../../contexts/CurrentAppContext";
+
 export default function MoviesCard ({ movie, isSavedCard }) {
 
-    const { toggleLike } = useContext(CurrentAppContext),
-        [isLiked, setIsLiked] = useState(movie.isLiked);
-        
-
-    console.log(movie)
+    const {toggleLike} = useContext(CurrentAppContext),
+          [isLiked, setIsLiked] = useState(movie.isLiked);
 
     function roundTohours (min) {
         const hours = Math.floor(min/60);
         return `${hours ? hours + ' ч. ' : ''} ${min%60} мин.`
     }
+    
     function changeCheckbox (event) {
         toggleLike(event);
         setIsLiked(!isLiked);
@@ -30,7 +29,7 @@ export default function MoviesCard ({ movie, isSavedCard }) {
                         <input type="checkbox" id={ `toggleCheckbox${movie.movieId || movie.id}`} className={"movies-card__checkbox"} name={movie.movieId || movie.id} checked={isLiked} onChange={(event) => changeCheckbox(event)}/>
                         <label htmlFor={`toggleCheckbox${movie.movieId || movie.id}`} className={`movies-card__label-checkbox ${isSavedCard && 'movies-card__delete'}`} ></label>
                 </div>
-                    <p className="movies-card__duration">{roundTohours(movie.duration)}</p>
+                <p className="movies-card__duration">{roundTohours(movie.duration)}</p>
             </div>
         </li>
     )

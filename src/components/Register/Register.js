@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form";
 import FormInputName from "../Form/FormInputName/FormInputName";
@@ -7,13 +6,10 @@ import FormInputPassword from "../Form/FormInputPassword/FormInputPassword";
 import FormSubmitButton from "../Form/FormSubmitButton/FormSubmitButton";
 import useFormWithValidation from "../../hooks/useFormWithValidation/useFormWithValidation";
 import mainApi from "../../utils/MainApi";
-import { useNavigate } from "react-router-dom";
 
-export default function Register ({handleInfoTooltip, setLoggedIn}) {
+export default function Register ({handleInfoTooltip, handleAuthorize}) {
 
-
-    const navigate = useNavigate(),
-          formWithValidation = useFormWithValidation();
+    const formWithValidation = useFormWithValidation();
 
     function changeForm (event) {
         event.preventDefault();
@@ -24,23 +20,13 @@ export default function Register ({handleInfoTooltip, setLoggedIn}) {
         event.preventDefault();
         const [name, email, password] = event.currentTarget;
         mainApi.register(name.value, email.value, password.value)
-        .then(data => {
-            mainApi.authorize(email.value, password.value)
-            .then((data) => {
-                if (data.token) {
-                  localStorage.setItem('jwt', data.token);
-                  setLoggedIn(true);
-                  handleInfoTooltip('ok', 'Вы успешно вошли!');
-                  navigate('/', {replace: true});
-                } else {
-                  throw new Error (data)
-                }
+            .then(data => {
+                handleAuthorize(email.value, password.value);
+              }
+            )
+            .catch(err=>{
+                handleInfoTooltip('error', 'Ошибка при входе!');
             })
-          }
-        )
-        .catch(err=>{
-            handleInfoTooltip('error', 'Ошибка при входе!');
-        })
     }
 
     return (
