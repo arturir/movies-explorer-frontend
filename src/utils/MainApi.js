@@ -107,5 +107,5 @@ class MainApi {
     }
 }
 
-const mainApi = new MainApi("api.arturir.nomoredomainsmonster.ru");
+const mainApi = new MainApi("https://api.arturir.nomoredomainsmonster.ru");
 export default mainApi;
