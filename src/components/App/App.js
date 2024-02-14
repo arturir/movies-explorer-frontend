@@ -14,7 +14,7 @@ import PopupInfoTooltip from '../PopupInfoTooltip/PopupInfoTooltip';
 import ProtectedRouteElement from '../ProtectedRoute/ProtectedRoute';
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false),
+  const [loggedIn, setLoggedIn] = useState(true),
         [email, setEmail] = useState(''),
         [userName, setUserName] = useState(''),
         [movies, setMovies] = useState([]),
@@ -26,6 +26,10 @@ export default function App() {
         [typeInfoTooltip, setTypeInfoTooltip] = useState(''),
         navigate = useNavigate();
 
+  useEffect(() => {
+    tokenCheck();
+  }, [])
+  
   useEffect(()=> {
     if (editFormIsOpen) {
       document.querySelector("body").classList.add("body_no-scroll");
@@ -39,7 +43,7 @@ export default function App() {
   }, [loggedIn]);
 
   useEffect(() => {
-    if (loggedIn) {
+    if (loggedIn && email) {
       mainApi.getCards()
         .then(movies => setSavedMovies(movies.movies))
         .catch(err => setError(true))
@@ -58,7 +62,7 @@ export default function App() {
           setUserName(res.name);
           handleInfoTooltip('ok', 'Данные успешно изменены')
         })
-        .catch(err => handleInfoTooltip('error', 'Ошибка при входе!'))
+        .catch(err => handleInfoTooltip('error', 'Ошибка изменения данных!'))
     )
   }
 
@@ -69,12 +73,13 @@ export default function App() {
           localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
           handleInfoTooltip('ok', 'Вы успешно вошли!');
-          navigate('/movies', {replace: true});
+          navigate('movies', {replace: true})
         } else {
           handleInfoTooltip('error', 'Ошибка при входе!');
           throw new Error (data);
         }
     })
+
     .catch(err => handleInfoTooltip('error', 'Ошибка при входе!'))
   }
 
@@ -86,29 +91,37 @@ export default function App() {
           setLoggedIn(true);
           setEmail(res.email)
           setUserName(res.name)
-          navigate("/", {replace: true})
+        } else {
+          throw new Error
         }
       })
-      .catch(err => handleInfoTooltip('error', 'Неправильный токен или он отсутствует'))
+      .catch(err => {
+        setLoggedIn(false);
+        handleInfoTooltip('error', 'Неправильный токен или он отсутствует');
+      })
+    } else {
+      setLoggedIn(false);
     }
   } 
 
   function toggleLike(event) {
     if (event.target.checked) {
       const newMovie = movies.find((movie) => movie.id==event.target.name);
-      mainApi.addNewCard(newMovie)
+      return mainApi.addNewCard(newMovie)
       .then(newMovie => {
         newMovie.isLiked = true;
         setSavedMovies([...savedMovies, newMovie]);
         setError(false);
+        return newMovie
       })
       .catch(err => setError(true))
     } else {
       const deletedMovie = savedMovies.find((movie) => movie.movieId==event.target.name);
-      mainApi.deleteCard(deletedMovie._id)
-        .then(() => {
+      return mainApi.deleteCard(deletedMovie._id)
+        .then((data) => {
           setError(false);
           setSavedMovies(savedMovies.filter((movie) => {return movie.movieId != event.target.name}));
+          return data
         })
         .catch(err => setError(true))
     }
@@ -139,7 +152,7 @@ export default function App() {
   }
 
   return (
-    <CurrentAppContext.Provider value={{movies, setMovies, toggleLike, loggedIn, email, userName, handleUpdateUser, savedMovies, setSavedMovies, error, setError}}>
+    <CurrentAppContext.Provider value={{movies, setMovies, toggleLike, loggedIn, email, userName, handleUpdateUser, savedMovies, setSavedMovies, error, setError, handleInfoTooltip}}>
       <div className="page">
         <Routes>
           <Route path="/movies" element={<ProtectedRouteElement element={Movies} findMovies={findMovies} addLikesToMovies={addLikesToMovies}/>} />

@@ -14,7 +14,8 @@ export default function SavedMovies ({findMovies}) {
 
 
     useEffect(() => {
-        savedMovies.forEach(movie => movie.isLiked = true)
+        savedMovies.forEach(movie => movie.isLiked = true);
+        getRequestedMovies();
     }, [savedMovies]);  
 
     useEffect(() => {
@@ -41,7 +42,7 @@ export default function SavedMovies ({findMovies}) {
                     Возможно, проблема с соединением или сервер недоступен.
                     Подождите немного и попробуйте ещё раз
                 </p>}
-                {!savedMovies?.length && <p className="movies__empty">Ничего не найдено</p>}         
+                {!savedMovies?.length && <p className="movies__empty">Нет сохраненных фильмов</p>}          
                 <MoviesCardList movies={(searchRequest.textInput || searchRequest.checkboxInput) ? [...searchResult] : [...savedMovies]} isSavedCards={true}/>
             </section>
             <Footer />

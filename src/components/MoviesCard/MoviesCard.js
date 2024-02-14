@@ -4,7 +4,7 @@ import { CurrentAppContext } from "../../contexts/CurrentAppContext";
 
 export default function MoviesCard ({ movie, isSavedCard }) {
 
-    const {toggleLike} = useContext(CurrentAppContext),
+    const {toggleLike, handleInfoTooltip} = useContext(CurrentAppContext),
           [isLiked, setIsLiked] = useState(movie.isLiked);
 
     function roundTohours (min) {
@@ -13,9 +13,18 @@ export default function MoviesCard ({ movie, isSavedCard }) {
     }
     
     function changeCheckbox (event) {
-        toggleLike(event);
-        setIsLiked(!isLiked);
-        movie.isLiked = !isLiked;
+        toggleLike(event)
+            .then((data) => {
+                if (data.isLiked || data.message) {
+                    setIsLiked(!isLiked);
+                    movie.isLiked = !isLiked;
+                } else {
+                    throw new Error
+                }
+            })
+            .catch(()=> {
+                handleInfoTooltip('error', 'При установке лайка произошла ошибка')
+            })
     }
 
     return (

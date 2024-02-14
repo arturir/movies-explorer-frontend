@@ -3,7 +3,7 @@ import FormInputName from "../Form/FormInputName/FormInputName";
 import FormInputEmail from "../Form/FormInputEmail/FormInputEmail";
 import FormSubmitButton from "../Form/FormSubmitButton/FormSubmitButton";
 import CloseButton from "../CloseButton/CloseButton";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CurrentAppContext } from "../../contexts/CurrentAppContext";
 import useFormWithValidation from "../../hooks/useFormWithValidation/useFormWithValidation";
 
@@ -11,7 +11,8 @@ import useFormWithValidation from "../../hooks/useFormWithValidation/useFormWith
 export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
 
     const {userName, email, handleUpdateUser} = useContext(CurrentAppContext),
-          formWithValidation = useFormWithValidation();
+          formWithValidation = useFormWithValidation(),
+          [buttonIsDisabled, setButtonIsDisabled] = useState(false);
 
     function changeForm (event) {
         formWithValidation.handleChange(event);
@@ -26,8 +27,14 @@ export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
     function handleSubmit (event) {
         event.preventDefault();
         const [name, email, password] = event.currentTarget;
-        handleUpdateUser({name: name.value, email: email.value, password: password.value});
-        toggleFormIsOpen(event);
+        setButtonIsDisabled(true);
+        handleUpdateUser({name: name.value, email: email.value, password: password.value})
+            .then((data) => {
+                toggleFormIsOpen(event);
+            })
+            .finally(()=>{
+                setButtonIsDisabled(false);
+            })
     }
 
     return (
@@ -37,8 +44,8 @@ export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
                 <h2 className="form__greeting form__greeting_type_edit ">Изменить данные</h2>
                 <form className="form__wrapper" onChange={changeForm} onSubmit={handleSubmit}>
                     <FormInputName error={formWithValidation.errors?.name} value={userName} />
-                    <FormInputEmail error={formWithValidation.errors?.email} value={email}/>
-                    <FormSubmitButton text={"Изменить"} mod="form__button_type_edit" isValid={formWithValidation.isValid}/>
+                    <FormInputEmail error={formWithValidation.errors?.email} value={email} />
+                    <FormSubmitButton text={"Изменить"} mod={"form__button_type_edit"} isValid={formWithValidation.isValid && !buttonIsDisabled }/>
                 </form>
             </Form>
             <CloseButton action={toggleFormIsOpen}/> 
