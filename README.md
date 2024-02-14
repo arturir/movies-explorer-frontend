@@ -1,4 +1,4 @@
-# movies-explorer-
+# movies-explorer-api
 
 ***
 
