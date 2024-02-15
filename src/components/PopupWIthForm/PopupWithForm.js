@@ -14,17 +14,22 @@ export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
           formWithValidation = useFormWithValidation(),
           [buttonIsDisabled, setButtonIsDisabled] = useState(false);
 
-    function changeForm (event) {
-        formWithValidation.handleChange(event);
+    function changeForm(event) {
+        if ((userName == event.currentTarget.name.value) && (email == event.currentTarget.email.value)) {
+            setButtonIsDisabled(true);
+        } else {
+            setButtonIsDisabled(false);
+            formWithValidation.handleChange(event);
+        }
     }
 
-    function handleOverlayClose (event) {
+    function handleOverlayClose(event) {
         if (event.target.classList.contains("popup")) {
             toggleFormIsOpen(event);
         }
     }
 
-    function handleSubmit (event) {
+    function handleSubmit(event) {
         event.preventDefault();
         const [name, email, password] = event.currentTarget;
         setButtonIsDisabled(true);
@@ -45,7 +50,7 @@ export default function PopupWithForm ({formIsOpen, toggleFormIsOpen}) {
                 <form className="form__wrapper" onChange={changeForm} onSubmit={handleSubmit}>
                     <FormInputName error={formWithValidation.errors?.name} value={userName} />
                     <FormInputEmail error={formWithValidation.errors?.email} value={email} />
-                    <FormSubmitButton text={"Изменить"} mod={"form__button_type_edit"} isValid={formWithValidation.isValid && !buttonIsDisabled }/>
+                    <FormSubmitButton text={"Изменить"} mod={"form__button_type_edit"} isValid={formWithValidation.isValid && !buttonIsDisabled}/>
                 </form>
             </Form>
             <CloseButton action={toggleFormIsOpen}/> 
