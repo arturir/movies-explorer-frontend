@@ -1,0 +1,23 @@
+.popup__text {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    color: rgba(0,0,0,1);
+    align-self: center;
+    margin: 0 0 7px;
+    height: 12px;
+    width: 260px;
+    padding: 20px 5px 20px;
+    text-align: center;
+}
+.popup__text_type_error {
+    color:rgba(238, 52, 101, 1);
+}
+
+
+@media (min-width: 768px) {
+    .popup__text {
+        font-size: 14px;
+    }
+}
